@@ -17,9 +17,9 @@ const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
-const prefix = '.'
 
-const ownerNumber = ['94722336454']
+
+const ownerNumber = ['94753138584']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -29,17 +29,26 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("Session downloaded 💚🌝…")
+console.log("Session downloaded ✅...")
 })})}
 
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 8000;
 
-//=============================================
+//============================================
 
 async function connectToWA() {
-console.log("Connecting wa bot 💚🌝...");
+//connect mongodb========
+const connectDB = require('./lib/mongodb')
+connectDB();
+//============================
+const {readEnv} = require('./lib/database')
+const config = await readEnv();
+const prefix = config.PREFIX
+//============================
+
+console.log("Connecting wa bot ðŸ§¬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -59,18 +68,20 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('✅ Plugin installing in process...')
+console.log('ðŸ˜¼ Installing... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('📚 All Plugins installed....')
-console.log('🔊 Cyber-X connected to WhatsApp ✅')
-delay(100);
-const botada = jidNormalizedUser(conn.user.id)   
-conn.sendMessage(botada, { image: { url : "https://telegra.ph/file/900588611c761d4df332e.jpg" } , caption: "*𝗖𝗬𝗕𝗘𝗥-𝗫 𝗜𝗜𝗜 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗧𝗢 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣* ✅\n\n*This is the result of our team's hard work and our team owns the bot's rights and code rights. Therefore, you have no chance to change and submit our bot under any circumstances.*\n\n🔰 *Official GitHub* - ```https://github.com/darkalphaxteam```\n\n🪀 *WhatsApp Channel* - ```https://whatsapp.com/channel/0029Va5EQi7CRs1lXmZYKw0x```"})
+console.log('Plugins installed successful ✅🤖…')
+console.log('Bot connected to whatsapp ✅🤖…')
+
+let up = `> WHITE-DEVIL BOT connected successful ✅…\n\nJoin Our Support Chanel🤖🇱🇰 = https://whatsapp.com/channel/0029ValmRUuIN9ivgXD4k12t\n\nPREFIX: ${prefix}`;
+
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/87d7185b22f042db0f70d.jpg` }, caption: up })
+
 }
 })
 conn.ev.on('creds.update', saveCreds)  
@@ -132,6 +143,10 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               }
             }
 
+//============================================================================ 
+if(!isOwner && config.MODE === "private") return
+if(!isOwner && isGroup && config.MODE === "inbox") return
+if(!isOwner && !isGroup && config.MODE === "groups") return
 
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
@@ -163,8 +178,7 @@ mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
-//============================================================================ 
-
+        
 })
 }
 app.get("/", (req, res) => {
