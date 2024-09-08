@@ -44,7 +44,7 @@ const sock = makeWASocket({
   auth: state,
   ...
 
-const conn = makeWASocket({
+conn = makeWASocket({
         logger: P({ level: 'silent' }),
         printQRInTerminal: false,
         browser: Browsers.macOS("google"),
