@@ -59,20 +59,18 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('ðŸ˜¼ Installing... ')
+console.log('✅ Plugin installing in process...')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('Plugins installed successful 💚🌝…')
-console.log('Bot connected to whatsapp 💚🌝…')
-
-let up = `HEY NEW USER....BOXTER MD WA BOT CONNECTED✅\n\n*Join & Support My Chanel = https://whatsapp.com/channel/0029VaePgYXBqbr6Vkg75n1j 💚*\n\nPREFIX: ${prefix}`;
-
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/900435c6d3157c98c3c88.jpg` }, caption: up })
-
+console.log('📚 All Plugins installed....')
+console.log('🔊 Cyber-X connected to WhatsApp ✅')
+delay(100);
+const botada = jidNormalizedUser(conn.user.id)   
+conn.sendMessage(botada, { image: { url : "https://telegra.ph/file/900588611c761d4df332e.jpg" } , caption: "*𝗖𝗬𝗕𝗘𝗥-𝗫 𝗜𝗜𝗜 𝗖𝗢𝗡𝗡𝗘𝗖𝗧𝗘𝗗 𝗧𝗢 𝗪𝗛𝗔𝗧𝗦𝗔𝗣𝗣* ✅\n\n*This is the result of our team's hard work and our team owns the bot's rights and code rights. Therefore, you have no chance to change and submit our bot under any circumstances.*\n\n🔰 *Official GitHub* - ```https://github.com/darkalphaxteam```\n\n🪀 *WhatsApp Channel* - ```https://whatsapp.com/channel/0029Va5EQi7CRs1lXmZYKw0x```"})
 }
 })
 conn.ev.on('creds.update', saveCreds)  
