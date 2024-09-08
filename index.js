@@ -39,7 +39,7 @@ const port = process.env.PORT || 8000;
 //============================================
 
 console.log("Connecting wa bot ðŸ§¬...");
-const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
+const { state, saveCreds } = useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
 const conn = makeWASocket({
