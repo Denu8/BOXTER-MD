@@ -19,7 +19,7 @@ const axios = require('axios')
 const { File } = require('megajs')
 
 
-const ownerNumber = ['94753138584']
+const ownerNumber = ['94722336454']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -78,7 +78,7 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅🤖…')
 console.log('Bot connected to whatsapp ✅🤖…')
 
-let up = `> WHITE-DEVIL BOT connected successful ✅…\n\nJoin Our Support Chanel🤖🇱🇰 = https://whatsapp.com/channel/0029ValmRUuIN9ivgXD4k12t\n\nPREFIX: ${prefix}`;
+let up = `> BOXTER MD BOT connected successful ✅…\n\nJoin Our Support Chanel🤖🇱🇰 = https://whatsapp.com/channel/0029VaePgYXBqbr6Vkg75n1j\n\nPREFIX: ${prefix}`;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://telegra.ph/file/87d7185b22f042db0f70d.jpg` }, caption: up })
 
