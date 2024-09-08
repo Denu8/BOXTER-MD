@@ -43,7 +43,6 @@ const { state, saveState } = useMultiFileAuthState('./auth_info');
 const sock = makeWASocket({
   auth: state,
   ...
-);
 
 const conn = makeWASocket({
         logger: P({ level: 'silent' }),
