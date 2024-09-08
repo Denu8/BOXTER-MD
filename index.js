@@ -61,9 +61,9 @@ connectToWA()
 } else if (connection === 'open') {
 console.log('ðŸ˜¼ Installing... ')
 const path = require('path');
-fs.readdirSync("./plugins/").forEach((plugin) => {
+fs.readdirSync("../plugins/..").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
-require("./plugins/" + plugin);
+require("../plugins/.." + plugin);
 }
 });
 console.log('Plugins installed successful 💚🌝…')
