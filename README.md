@@ -33,6 +33,8 @@ You can deploy this application on various platforms. Here are some options:
 - **[Koyeb](https://www.koyeb.com/)**: A modern cloud platform to deploy and manage your applications.
 - **[Render](https://render.com/)**: Provides a simple, fast, and reliable way to deploy and manage applications.
 
+- **[MONGODB](https://railway.com)**: Get Mongodb For Bot Connect
+
 ## BOXTER BOT SUPPORT
 
 FOLLOW ON WA CHANEL 👇
