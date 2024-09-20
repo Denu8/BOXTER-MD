@@ -5,7 +5,7 @@ cmd({
     pattern: "menu",
     desc: "get cmd list",
     category: "main",
-    react: "😎",
+    react: "📜",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
@@ -18,7 +18,6 @@ group: '',
 owner: '',
 convert: '',
 search: '',
-logo: ''
 };
 
 for (let i = 0; i < commands.length; i++) {
@@ -27,37 +26,37 @@ menu[commands[i].category] += `${config.PREFIX}${commands[i].pattern}\n`;
  }
 }
 
-let madeMenu = `*👋 Hello ${pushname} 👋*
+let madeMenu = `*👋 Hello ${pushname}*
 
-*⬇️DOWNLOAD COMMANDS⬇️*
+*🔱DOWNLOAD COMMANDS🔱*
 
 ${menu.download}
 
-*✨MAIN COMMANDS✨*
+*🔱MAIN COMMANDS🔱*
 
 ${menu.main}
 
-*🌟GROUP COMMANDS🌟*
+*🔱GROUP COMMANDS🔱*
 
 ${menu.group}
 
-*💚OWNER COMMANDS💚*
+*🔱OWNER COMMANDS🔱*
 
 ${menu.owner}
 
-*🔁CONVERT COMMANDS🔁*
+*🔱CONVERT COMMANDS🔱*
 
 ${menu.convert}
 
-*💥SEARCH COMMANDS💥*
+*🔱SEARCH COMMANDS🔱*
 
 ${menu.search}
 
-_Join Our Support Chanel 👋💚_ = *👉 https://whatsapp.com/channel/0029ValmRUuIN9ivgXD4k12t 👈*
+_Support Chanel 👋💚_ = *👉  https://whatsapp.com/channel/0029VaePgYXBqbr6Vkg75n1j 👈*
 
-©𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 𝘿𝘼𝙎𝙎𝘼 𝙈𝘿
+©𝙋𝙊𝙒𝙀𝙍𝙀𝘿 𝘽𝙔 𝘽𝙊𝙓𝙏𝙀𝙍 𝙈𝘿
 `
-await conn.sendMessage(from,{image:{url:https://unitedcamps.in/Images/file_2135.jpg},caption:madeMenu},{quoted:mek})
+await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
 
 }catch(e){
 console.log(e)
