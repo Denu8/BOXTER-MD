@@ -1,6 +1,6 @@
 {
-  "name": "WHITE-DEVIL-BOT",
-  "description": "Javascript WhatsApp bot made by KingDevil",
+  "name": "boxter",
+  "description": "Javascript WhatsApp bot made by boxter",
   "logo": "https://telegra.ph/file/dcac0bec84964846f9640.jpg",
   "keywords": ["bot"],
   "success_url": "/",
