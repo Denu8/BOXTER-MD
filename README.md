@@ -22,7 +22,7 @@ Welcome to the **DENUWAH NEW** project for **BOXTER-MD**. This application allow
 
 ## PAIR SITE
 
-You can see the Paire Code at [PAIR CODE](https://boxter-md-pair.onrender.com).
+You can see the Paire Code at [PAIR CODE](https://pair-web-public.koyeb.app/).
 
 ## Deployment
 
